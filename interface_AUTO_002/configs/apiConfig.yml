@@ -1,0 +1,11 @@
+Login: #登录模块
+  login: #登录接口
+    path: /account/sLogin
+    method: POST
+  logout:
+    path:
+    method: POST
+Shop:
+  less:
+    path: /shopping/myShop
+    method: GET
