@@ -10,14 +10,15 @@ RSA加密代码创建
 '''
 #MD5加密
 import hashlib
-def md5_test(pwd:str,salt=''):
+def md5_test_data(pwd:str,salt=''):
     '''
     :param pwd: 需要加密的字符串
     :param salt: 盐值
     :return:
     '''
     h1 = hashlib.md5() #实例化MD5加密方法
-    h1.update(f'{pwd}{salt}'.encode('utf-8'))
+    pwd = pwd+salt#拼接盐值
+    h1.update(pwd.encode('utf-8'))
     return h1.hexdigest()
 
 #RSA加密

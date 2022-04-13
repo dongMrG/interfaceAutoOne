@@ -4,10 +4,10 @@
 # @Email : 756444819@qq.com
 # @File : login_pltest.py
 
-from interface_AUTO_002.common.baseAPI import BaseAPI
-from interface_AUTO_002.configs.config import TESTDATA
-from interface_AUTO_002.utils.handle_data1 import md5_test
-from interface_AUTO_002.utils.handle_excelv1 import get_excel_data,handle_list
+from common.baseAPI import BaseAPI
+
+from utils.handle_data1 import md5_test_data
+from utils.handle_excelv1 import get_excel_data
 class Login(BaseAPI):
 
     def login(self,inData):

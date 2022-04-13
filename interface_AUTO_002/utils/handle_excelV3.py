@@ -49,7 +49,6 @@ def get_excel_data( sheet_name, case_name, run_case=['all']):
                 run_case_data.append(case_name + f'{one:0>3}')
     print('运行的用例是', run_case_data)
     # -----------------------------------------------
-
     # 获取指定数据
     row_idx = 0
     for one in work_sheet.col_values(0):
