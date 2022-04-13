@@ -11,6 +11,3 @@ def get_yaml_data(fileDir):
     with open(fileDir,encoding='utf-8') as f:
         return yaml.safe_load(f.read())
 
-if __name__ == '__main__':
-    res = get_yaml_data('../configs/apiConfig.yml')
-    print(res)

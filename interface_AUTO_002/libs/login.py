@@ -4,19 +4,25 @@
 # @Email : 756444819@qq.com
 # @File : login.py
 
-from interface_AUTO_002.common.baseAPI import BaseAPI
-from interface_AUTO_002.configs.config import TESTDATA
-from interface_AUTO_002.utils.handle_data1 import md5_test
-
+from common.baseAPI import BaseAPI
+from utils.handle_data1 import md5_test
+from utils.handle_excelV3 import get_excel_data
+import json
 class Login(BaseAPI):
-    def login(self,inData,getToken=False):
+
+    def login(self,inData):#,getToken=False
+        inData = json.dumps(inData)
         inData['password'] = md5_test(inData['password'])#加密,将加密的数据传入inData中
+        print(type(inData))
         reqs = self.requests_send(inData)#发送请求
-        # resData = reqs.json()['data']['token']
-        # if getToken == True:
-        #     return resData
+        # if getToken:
+        #     return reqs['data']['token']
         # else:
-        #     return reqs
+        return reqs['msg']
 
 if __name__ == '__main__':
-    print(Login().login(TESTDATA,True))
+    TESTDATA ={
+        "username":"zo0606",
+        "password":"83808"
+    }
+    print(Login().login(TESTDATA))

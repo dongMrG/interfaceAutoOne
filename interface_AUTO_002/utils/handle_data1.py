@@ -17,7 +17,7 @@ def md5_test(pwd:str,salt=''):
     :return:
     '''
     h1 = hashlib.md5() #实例化MD5加密方法
-    md5 = h1.update(f'{pwd}{salt}'.encode('utf-8'))
+    h1.update(f'{pwd}{salt}'.encode('utf-8'))
     return h1.hexdigest()
 
 #RSA加密
@@ -51,7 +51,7 @@ class RSAencrpyt:
               cipher.encrypt : 加密函数进行加密   加密对象.加密方法
               base64.b64encode : base64进行编码
             '''
-            print(rsa_test)
+            # print(rsa_test)
             return rsa_test.decode('utf-8')#对rsa加密的字符串进行解码处理
 
 if __name__ == '__main__':
