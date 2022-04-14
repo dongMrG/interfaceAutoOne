@@ -10,13 +10,11 @@ from utils.handle_excelV3 import get_excel_data
 import json
 class Login(BaseAPI):
 
-    def login(self,inData):#,getToken=False
+    def login(self,inData,getToken=False):#
         inData['password'] = md5_test_data(inData['password'])#加密,将加密的数据传入inData中
-        print(type(inData))
         reqs = self.requests_send(inData)#发送请求
-        # if getToken:
-        #     return reqs['data']['token']
-        # else:
+        if getToken:
+            return reqs['data']['token']
         return reqs
 
 if __name__ == '__main__':

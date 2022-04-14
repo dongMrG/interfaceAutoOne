@@ -3,9 +3,7 @@
 # @Author : DXS
 # @Email : 756444819@qq.com
 # @File : config.py
-import json
 
-from utils.handle_excelV2 import get_excel_data
 HOST = 'http://121.41.14.39:8082'
-
+USERDATA = {"username": "zo0606", "password": "83808"}
 

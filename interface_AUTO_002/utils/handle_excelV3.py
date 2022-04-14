@@ -59,7 +59,6 @@ def get_excel_data( sheet_name, case_name, run_case=['all']):
             for num in col_indexs:  # [4,9,11] 遍历需要获取的列
                 tmp = is_josn(work_sheet.cell(row_idx, num).value)#cell(行编号，列编号)
                 # tmp = work_sheet.cell(row_idx, num).value#cell(行编号，列编号)
-                print(type(tmp))
                 col_datas.append(tmp)
             res_list.append(tuple(col_datas))
             # res_list.append(col_datas)
@@ -75,7 +74,7 @@ def is_josn(inStr):#  返回值 ： 是  ,不是
         return inStr#返回需要判断的字符串--不是json字符串
 
 if __name__ == '__main__':
-    res = get_excel_data( '登录模块', 'Login',run_case=['001','003-005'])
+    res = get_excel_data( '我的商铺','updateshopping')
     print(res)
     for i in res:
         print(i)

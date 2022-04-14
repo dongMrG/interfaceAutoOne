@@ -6,6 +6,16 @@ Login: #登录模块
     path:
     method: POST
 Shop:
-  less:
+  query:
     path: /shopping/myShop
+    method: GET
+  update:
+    path: /shopping/updatemyshop
+    method: POST
+  file_upload:
+    path: /file
+    method: POST
+Food:
+  food_less:
+    path: /shopping/addcategory
     method: GET
