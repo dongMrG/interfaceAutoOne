@@ -1,8 +1,8 @@
 from configparser import ConfigParser
 from loguru import logger
-from utils.handle_path import logs_path, configs_path
+from utils.handle_path import logs_path, config_path
 from time import strftime
-
+import os
 
 class MyLog():
     __instance = None   # 单例实现
@@ -18,9 +18,9 @@ class MyLog():
         if self.__call_flag:  # 看是否调用过
             __curdate = strftime('%Y%m%d-%H%M%S')
             cfg = ConfigParser()  #标准库读取ini文件
-            cfg.read(configs_path / 'loguru.ini', encoding='utf-8')
+            cfg.read(os.path.join(config_path,'loguru.ini'), encoding='utf-8')
             logger.remove(handler_id=None)  # 关闭console输出
-            logger.add(logs_path / f'AutoPolly1217_{__curdate}.log',  # 日志存放位置
+            logger.add(os.path.join(logs_path,f'AutoInterFace_{__curdate}.log'),  # 日志存放位置
                        retention=cfg.get('log', 'retention'),  # 清理
                        rotation=cfg.get('log', 'rotation'),  # 循环 达到指定大小后建立新的日志
                        format=cfg.get('log', 'format'),  # 日志输出格式
