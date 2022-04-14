@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://D:/BaiduNetdiskDownload/4-接口自动化/第7次课-2022.01.16(环境初始化与数据清除)/Delivery_System0116/.idea/Delivery_System0105.iml" filepath="D:/BaiduNetdiskDownload/4-接口自动化/第7次课-2022.01.16(环境初始化与数据清除)/Delivery_System0116/.idea/Delivery_System0105.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/interface_AUTO_002.iml" filepath="$PROJECT_DIR$/.idea/interface_AUTO_002.iml" />
       <module fileurl="file://$PROJECT_DIR$/../.idea/接口.iml" filepath="$PROJECT_DIR$/../.idea/接口.iml" />
     </modules>

@@ -5,6 +5,7 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="接口" />
+    <orderEntry type="module" module-name="Delivery_System0105" />
   </component>
   <component name="PackageRequirementsSettings">
     <option name="requirementsPath" value="" />

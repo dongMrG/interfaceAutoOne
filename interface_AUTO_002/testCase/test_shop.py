@@ -33,36 +33,34 @@ class TestShop():
         shop = shop_init.query(inBody)
         assert shop['code'] == expData['code']
 
+    # 方案1   店铺编辑接口
+    # @allure.story('更新店铺')
+    # @pytest.mark.parametrize('title,update_inBody,update_expData',get_excel_data('我的商铺','updateshopping'))
+    # @allure.title('{title}')
+    # def test_shop_update(self,shop_init,title,update_inBody,update_expData):
+    #     with allure.step('1、用户登录'):
+    #         shop_object = shop_init
+    #     with allure.step('2、选中编码店铺'):
+    #         shop_id = shop_init.query({'page':1,'limit':20})['data']['records'][0]['id']
+    #     with allure.step('3、替换店铺图片'):
+    #         image_info = shop_init.file_upload('../data/y001.png')['data']['realFileName']
+    #     with allure.step('4、提交店铺信息'):
+    #         res = shop_init.update(update_inBody,update_expData,image_info)
+    #     with allure.step('5、判断是否操作成功'):
+    #         assert res['code'] == update_expData['code']
 
+    # 方案2  fixture
     @allure.story('更新店铺')
-    @pytest.mark('title,update_inBody,update_expData',get_excel_data('我的商铺','updateshopping'))
+    @pytest.mark.parametrize('title,update_inBody,update_expData',get_excel_data('我的商铺','updateshopping'))
     @allure.title('{title}')
-    #编辑的接口
-    def test_shop_update(self,shop_init,update_inBody,update_expData):
-        with allure.step('1、用户登录'):
-            shop_object = shop_init
-        with allure.step('2、选中编码店铺'):
-            shop_id = shop_init.query({'page':1,'limit':20})['data']['records'][0]['id']
-        with allure.step('3、替换店铺图片'):
-            image_info = shop_init.file_upload('../data/y001.png')
-        with allure.step('4、提交店铺信息'):
-            res = shop_init.update(update_inBody,update_expData,image_info)
-        with allure.step('5、判断是否操作成功'):
+    def test_shop_update(self,shop_update_init,title,update_inBody,update_expData):
+        with allure.step('1、提交店铺信息'):
+            res = shop_update_init['shop_object'].update(update_inBody,
+                                                         shop_update_init['shop_id'],
+                                                         shop_update_init['image_info'])
+        with allure.step('2、判断是否操作成功'):
             assert res['code'] == update_expData['code']
 
-
-
-
-    # @allure.story('更新店铺')
-    # @pytest.mark('title,update_inBody,update_expData',get_excel_data('我的商铺','update'))
-    # @allure.title('{title}')
-    # def test_update(self,update_inBody,update_expData):
-    #     # 登录
-    #     TESTDATA = {"username": "zo0606", "password": "83808"}
-    #     token = Login().login(TESTDATA, getToken=True)
-    #     #更新店铺
-    #
-    #     update = Shop(token).update(update_inBody,update_expData,)
 
 if __name__ == '__main__':
 

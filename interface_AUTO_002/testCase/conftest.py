@@ -38,3 +38,21 @@ def shop_init(login_init):
     print('------2、创建店铺实例操作------')
     shop_object = Shop(login_init)
     yield shop_object
+
+#店铺更新初始化操作
+@pytest.fixture(scope='class')
+def shop_update_init(shop_init):
+        shop_object = shop_init
+        shop_id = shop_init.query({'page':1,'limit':20})['data']['records'][0]['id']
+        image_info = shop_init.file_upload('../data/y001.png')['data']['realFileName']
+        shop_update = {'shop_object':shop_object,'shop_id':shop_id,'image_info':image_info}
+        # yield shop_object,shop_id,image_info
+        yield shop_update
+
+
+def pytest_collection_modifyitems(items):
+    # 解决pytest执行用例，标题有中文时显示编码不正确的问题
+    for item in items:
+        item.name = item.name.encode("utf-8").decode("unicode_escape")
+        print(item.nodeid)
+        item._nodeid = item.nodeid.encode("utf-8").decode("unicode_escape")
